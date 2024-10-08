@@ -38,8 +38,6 @@ do
 
 void IngresarEmpleado()
 {
-	//Gerente gerente = new Gerente(); Desarollador desarollador = new Desarollador(); GerenteRRHH gerenterrhh = new GerenteRRHH(); ConsultorExterno consultor = new ConsultorExterno();
-
 	char option;
 	Console.WriteLine("Seleccione el Tipo de Empleado a Ingresar:");
 	Console.WriteLine("1) Gerente");
