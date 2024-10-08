@@ -3,7 +3,6 @@ using Examen02.Interfaces;
 
 List<EmpleadoBase> empleados = new List<EmpleadoBase>();
 
-
 char option;
 do
 {
@@ -39,7 +38,7 @@ do
 
 void IngresarEmpleado()
 {
-	Gerente gerente = new Gerente(); Desarollador desarollador = new Desarollador(); GerenteRRHH gerenterrhh = new GerenteRRHH(); ConsultorExterno consultor = new ConsultorExterno();
+	//Gerente gerente = new Gerente(); Desarollador desarollador = new Desarollador(); GerenteRRHH gerenterrhh = new GerenteRRHH(); ConsultorExterno consultor = new ConsultorExterno();
 
 	char option;
 	Console.WriteLine("Seleccione el Tipo de Empleado a Ingresar:");
@@ -50,36 +49,35 @@ void IngresarEmpleado()
 	option = Console.ReadKey().KeyChar;
 	Console.WriteLine();
 
-	Console.WriteLine("Ingrese Id Empleado: ");
-	var id = Console.ReadLine();
-	Console.WriteLine("Ingrese Nombre Empleado: ");
-	var name = Console.ReadLine();
-	Console.WriteLine("Ingrese Puesto Empleado: ");
-	var puesto = Console.ReadLine();
 
-
+	EmpleadoBase nuevoEmpleado = null;
 	switch (option)
 	{
 		case '1':
-			gerente = new Gerente { IdEmpleado = Convert.ToInt32(id), Nombre = name!, Puesto = puesto! };
+			nuevoEmpleado = new Gerente();
 			break;
 		case '2':
-			desarollador = new Desarollador { IdEmpleado = Convert.ToInt32(id), Nombre = name!, Puesto = puesto! };
+			nuevoEmpleado = new GerenteRRHH();
 			break;
 		case '3':
-			gerenterrhh = new GerenteRRHH { IdEmpleado = Convert.ToInt32(id), Nombre = name!, Puesto = puesto! };
+			nuevoEmpleado = new Desarollador();
 			break;
 		case '4':
-			consultor = new ConsultorExterno { IdEmpleado = Convert.ToInt32(id), Nombre = name!, Puesto = puesto! };
+			nuevoEmpleado = new ConsultorExterno();
 			break;
+		default:
+			Console.WriteLine("Tipo de empleado no válido. Inténtelo de nuevo.");
+			return;
 	}
 
+	Console.WriteLine("Ingrese Id Empleado: ");
+	nuevoEmpleado.IdEmpleado = Convert.ToInt32(Console.ReadLine());
+	Console.WriteLine("Ingrese Nombre Empleado: ");
+	nuevoEmpleado.Nombre = Console.ReadLine();
+	Console.WriteLine("Ingrese Puesto Empleado: ");
+	nuevoEmpleado.Puesto = Console.ReadLine();
 
-
-	empleados.Add(gerente);
-	empleados.Add(desarollador);
-	empleados.Add(gerenterrhh);
-	empleados.Add(consultor);
+	empleados.Add(nuevoEmpleado);
 }
 
 void MostrarListado()
