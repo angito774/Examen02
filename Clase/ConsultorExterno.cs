@@ -12,7 +12,7 @@ namespace Examen02.Clase
 
         public override double CalcularSueldo()
         {
-            return 0;
+            return SueldoBase;
         }
     }
 }
